@@ -3,12 +3,22 @@ import pickle
 
 class User:
     def __init__(self, id, username, name, phone, password, email=None):
+        self.__check_data(id, username, name, phone, password, email)
         self.id = id
         self.username = username
         self.name = name
         self.phone = phone
         self.password = password
         self.email = email
+
+    def __check_data(self,  id, username:str, name, phone, password, email=None):
+        if not isinstance(id, int) or id < 0:
+            raise UserError("Id invalid", 'id',id)
+        if not username.lower() or len(username) < 8:
+            raise UserError("Username is invalid", 'username', username)
+        ...
+        if not len(password) < 8:
+            raise UserError("Password is invalid", 'password', "...")
 
     def save(self):
         file_name = f'{self.id}.user'
