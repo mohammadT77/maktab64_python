@@ -20,3 +20,9 @@ class User:
     def from_file(cls, file_path):
         with open(file_path, 'rb') as f:
             return pickle.load(f)
+
+
+class UserError(Exception):
+
+    def __init__(self, msg: str, field: str, data: ...) -> None:
+        super().__init__(msg, field, data)
