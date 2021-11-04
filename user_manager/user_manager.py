@@ -39,7 +39,16 @@ class User:
         :param password: str
         :return User
         """
-        pass
+
+        # Fetching User from files!
+        file_path = f"{username}.user"
+        user = cls.from_file(file_path)
+
+        # Validate password!
+        if user.password != password:
+            raise LoginError("password", "Password not matched!")
+
+        return user
 
 
 class UserError(Exception):
@@ -91,5 +100,4 @@ def login_menu():
     except LoginError as e:
         print("Error:", e)
         login_menu()
-
 
