@@ -85,6 +85,11 @@ def login_menu():
     username = input(">> username:")
     password = input('>> password:')
 
-    user = User.login(username, password)
+    try:
+        user = User.login(username, password)
+        print("Welcome: ", user)
+    except LoginError as e:
+        print("Error:", e)
+        login_menu()
 
 
