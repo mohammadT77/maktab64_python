@@ -15,10 +15,10 @@ class User:
         if not isinstance(id, int) or id < 0:
             raise UserError("Id invalid", 'id',id)
         if not username.lower() or len(username) < 8:
-            raise UserError("Username is invalid", 'username', username)
+            raise UserError("Username must be longer than 8 chars", 'username', username)
         ...
-        if not len(password) < 8:
-            raise UserError("Password is invalid", 'password', "...")
+        if len(password) < 8:
+            raise UserError("Password must be longer than 8 chars", 'password', "...")
 
     def save(self):
         file_name = f'{self.id}.user'
@@ -41,4 +41,4 @@ class UserError(Exception):
         self.data = data
 
     def __str__(self):
-        return f"User data error on field `{self.field}` (invalid data: `{self.data}`):\n{self.msg}"
+        return f"error on field `{self.field}` (invalid data: `{self.data}`): {self.msg}"
