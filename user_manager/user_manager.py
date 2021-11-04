@@ -31,6 +31,16 @@ class User:
         with open(file_path, 'rb') as f:
             return pickle.load(f)
 
+    @classmethod
+    def login(cls, username: str, password: str):
+        """
+        Login an user by Username & Password
+        :param username: str
+        :param password: str
+        :return User
+        """
+        pass
+
 
 class UserError(Exception):
 
@@ -42,6 +52,11 @@ class UserError(Exception):
 
     def __str__(self):
         return f"error on field `{self.field}` (invalid data: `{self.data}`): {self.msg}"
+
+class LoginError(Exception):
+
+    def __init__(self, reason, msg, *args) -> None:
+        super().__init__(reason, msg, *args)
 
 
 def register_menu():
@@ -63,4 +78,13 @@ def register_menu():
         print("Error:", e, "\nTry again!!!\n")
         register_menu()
 
-register_menu()
+def login_menu():
+    print("LoginMenu")
+    print("Enter your username & password:")
+
+    username = input(">> username:")
+    password = input('>> password:')
+
+    user = User.login(username, password)
+
+
