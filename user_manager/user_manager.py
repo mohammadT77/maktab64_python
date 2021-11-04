@@ -104,3 +104,18 @@ def login_menu():
         print("Error:", e)
         login_menu()
 
+def main_menu():
+    print("UserManager")
+    print(">> 1. Login")
+    print(">> 2. Register")
+
+    opt = input("Enter your option: ")
+    if opt == '1':
+        login_menu()
+    elif opt == '2':
+        register_menu()
+    else:
+        print("Invalid option\n")
+        main_menu()
+
+main_menu()
