@@ -11,9 +11,9 @@ class User:
         self.password = password
         self.email = email
 
-    def __check_data(self,  id, username:str, name, phone, password, email=None):
+    def __check_data(self, id, username: str, name, phone, password, email=None):
         if not isinstance(id, int) or id < 0:
-            raise UserError("Id invalid", 'id',id)
+            raise UserError("Id invalid", 'id', id)
         if not username.lower() or len(username) < 8:
             raise UserError("Username must be longer than 8 chars", 'username', username)
         ...
@@ -21,7 +21,7 @@ class User:
             raise UserError("Password must be longer than 8 chars", 'password', "...")
 
     def save(self):
-        file_name = f'{self.id}.user'
+        file_name = f'{self.username}.user'
         with open(file_name, 'wb') as f:
             pickle.dump(self, f)
         return file_name
@@ -42,3 +42,25 @@ class UserError(Exception):
 
     def __str__(self):
         return f"error on field `{self.field}` (invalid data: `{self.data}`): {self.msg}"
+
+
+def register_menu():
+    print("RegisterMenu")
+    print("Enter your profile below:")
+
+    id = input(">> id:")
+    username = input(">> username:")
+    name = input(">> name:")
+    phone = input('>> phone:')
+    password = input('>> password:')
+    email = input('>> email(opt):')
+
+    try:
+        user = User(int(id), username, name, phone, password, email)
+        file = user.save()
+        print(f"User Registered (file: {file})")
+    except UserError as e:
+        print("Error:", e, "\nTry again!!!\n")
+        register_menu()
+
+register_menu()
