@@ -42,7 +42,10 @@ class User:
 
         # Fetching User from files!
         file_path = f"{username}.user"
-        user = cls.from_file(file_path)
+        try:
+            user = cls.from_file(file_path)
+        except FileNotFoundError:
+            raise LoginError("username", "User is not exist!")
 
         # Validate password!
         if user.password != password:
