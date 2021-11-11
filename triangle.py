@@ -7,6 +7,7 @@ class Triangle:
         self.A = A
         self.B = B
         self.C = C
+        assert self.area() != 0
 
     def area(self):
         return self.heron_formula(self.A, self.B, self.C)
@@ -27,8 +28,3 @@ class Triangle:
     def distance(A, B):
         return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 
-
-t1 = Triangle((0, 0), (0, 3), (4, 0))
-print(t1.area())
-print(t1.sides())
-print(t1.perimeter())
