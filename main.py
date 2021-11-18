@@ -1,16 +1,18 @@
-class MyContextManagerClass:
-    def __enter__(self):
-        print("Hi, Entering!!!")
-        return self
+class MyIterClass:  # Iterable!
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        print("Bye, Exiting:")
-        print(exc_type, exc_val, exc_tb, sep="|||")
-        return True
+    def __iter__(self):
+        return 123
+
+    # def __next__(self):
+    #     self.n += 1
+    #     if self.n > 10:
+    #         raise StopIteration()
+    #     return self.n
 
 
-m = MyContextManagerClass()
+m_iter = iter(MyIterClass())
+print(m_iter)
+print(next(m_iter)) # a
+print(next(m_iter)) # s
+print(next(m_iter))
 
-with m as enter_return:
-    print("enter_return:",enter_return)
-    # raise TypeError("dadas", 1, 2, 3, 4)
