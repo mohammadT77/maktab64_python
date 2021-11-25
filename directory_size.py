@@ -1,34 +1,38 @@
 import logging
 import os
 
-logging.basicConfig(level=0)
+
+# logging.basicConfig(level=0)
+
+def convert_unit(unit, byte_size):
+    if unit == 'B':
+        return byte_size
+    elif unit == 'KB':
+        return byte_size / 1024
+    elif unit == 'MB':
+        return byte_size / 1024 ** 2
+    elif unit == 'GB':
+        return byte_size / 1024 ** 3
+    elif unit == 'TB':
+        return byte_size / 1024 ** 4
+    else:
+        return byte_size
 
 
-def convert_unit(unit: str = 'B'):
+def convert_unit_dec(unit: str = 'B'):
     unit = unit.upper()
 
     def inner_func(func):
         def wrapper(*args, **kwargs):
             byte_size = func(*args, **kwargs)
+            return convert_unit(unit, byte_size)
 
-            if unit == 'B':
-                return byte_size
-            elif unit == 'KB':
-                return byte_size / 1024
-            elif unit == 'MB':
-                return byte_size / 1024 ** 2
-            elif unit == 'GB':
-                return byte_size / 1024 ** 3
-            elif unit == 'TB':
-                return byte_size / 1024 ** 4
-            else:
-                return byte_size
         return wrapper
 
     return inner_func
 
 
-@convert_unit('MB')
+# @convert_unit_dec('MB')
 def get_directory_size(path):
     total_size = 0
     for dir_path, sub_dirs, sub_files in os.walk(path):  # Iterating on the directory files & sub-directories.
