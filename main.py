@@ -1,25 +1,23 @@
-class MyIterClass:  # Iterable!
+def make_upper(func):  # func = hello_word
+    def inner_function():  # wrapper function
+        res = func()  # hello_world() -> "Hello World!"
+        return res.upper()  # "HELLO WORLD"
 
-    def __iter__(self):
-        return 123
+    return inner_function
 
-    # def __next__(self):
-    #     self.n += 1
-    #     if self.n > 10:
-    #         raise StopIteration()
-    #     return self.n
+@make_upper
+def hello_world():
+    return "Hello World!"
+
+@make_upper  # make_upper(test)
+def test():
+    return "dsdsadasda adassdsada"
 
 
-# m_iter = iter(MyIterClass())
-# print(m_iter)
-# print(next(m_iter)) # a
-# print(next(m_iter)) # s
-# print(next(m_iter))
+print(hello_world())
 
-def avg(*args):
-    return sum(args) / len(args)
+# old_function = hello_world
+# new_function = make_upper(hello_world) # func (callable)
 
-def register_user(*args, **kwargs):
-    print(kwargs)
-
-register_user(1,2,3,4,5,5,6,7,7, name='sdsadsa', email='asdsada', age=123)
+# print('old:', old_function())
+# print('new:', new_function())  # HELLO WORLD
