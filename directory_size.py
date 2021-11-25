@@ -49,12 +49,16 @@ def get_directory_size(path):
 
 if __name__ == '__main__':  # Scripting
     import argparse
+
     parser = argparse.ArgumentParser(description="Directory size calculator utility.")
 
-    parser.add_argument('path', default=os.getcwd(), type=str,
-                        help='Directory path to calculate size')
-    parser.add_argument('-u', '--unit', default='B', choices=['B', 'KB', 'MB', 'TB'],
-                        help='File size unit')
+    # dir_path:
+    parser.add_argument(dest='path', type=str, default=os.getcwd(), nargs='?',
+                        help='Directory path')
+    # unit:
+    parser.add_argument('-u', '--unit', type=lambda s: s.upper(), default='B',
+                        choices=('B', 'KB', 'MB', 'GB', 'TB'),
+                        help="Size unit")
 
     args = parser.parse_args()
 
