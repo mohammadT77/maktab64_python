@@ -14,13 +14,13 @@ def convert_unit(unit: str = 'B'):
             if unit == 'B':
                 return byte_size
             elif unit == 'KB':
-                return byte_size // 1024
+                return byte_size / 1024
             elif unit == 'MB':
-                return byte_size // 1024 ** 2
+                return byte_size / 1024 ** 2
             elif unit == 'GB':
-                return byte_size // 1024 ** 3
+                return byte_size / 1024 ** 3
             elif unit == 'TB':
-                return byte_size // 1024 ** 4
+                return byte_size / 1024 ** 4
             else:
                 return byte_size
         return wrapper
@@ -28,19 +28,17 @@ def convert_unit(unit: str = 'B'):
     return inner_func
 
 
-# @convert_unit('KB')
+@convert_unit('MB')
 def get_directory_size(path):
     total_size = 0
-    for i in os.scandir(path):  # Iterating on the directory files & sub-directories.
-        i: os.DirEntry  # Typing
+    for dir_path, sub_dirs, sub_files in os.walk(path):  # Iterating on the directory files & sub-directories.
 
-        if i.is_file():
-            size = os.path.getsize(i.path) # Get file size
-        else:
-            size = get_directory_size(i.path)  # Recursive directory size
+        for file in sub_files:
+            current_path = f"{dir_path}/{file}"
+            size = os.path.getsize(current_path)
 
-        total_size += size
-        # logging.debug(f"Path: {i.path}, size: {size}")
+            logging.debug(f"Path: {current_path}, Size: {size}")
+            total_size += size
 
     return total_size
 
