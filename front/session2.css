@@ -1,0 +1,7 @@
+p, a.business {
+    color: red;
+}
+
+.business, .entertainment {
+    background-color: green;
+}
