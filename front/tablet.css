@@ -1,0 +1,7 @@
+body {
+    background-color: wheat;
+}
+#device::before {
+    content: "Tablet";
+    color: #390963;
+}

@@ -1,0 +1,7 @@
+body {
+    background-color: #000000;
+}
+#device::before {
+    content: "Mobile";
+    color: #db8585;
+}

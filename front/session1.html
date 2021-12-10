@@ -3,46 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+         #my-form > input[type='submit']{
+            background-color: #7542a1;
+            color: white;
+            border-radius: 50px;
+            box-shadow: 2px 4px 4px #6a6a6a;
+            padding: 10px 20px;
+            outline: none;
+            border: none;
+        }
+
+         #my-form > input[type='submit']:hover {
+            box-shadow: 1px 2px 2px #6a6a6a;
+            background-color: #6c3899;
+        }
+
+         #my-form > input[type='submit']:active {
+            box-shadow: 0 1px 1px #6a6a6a;
+            background-color: #390963;
+            color: #b8b8b8;
+        }
+
+
+        #my-form > input[type='text'] {
+            border: 1px solid #6868aa;
+            border-radius: 4px;
+            outline: none;
+            padding: 4px 4px;
+        }
+        #my-form > input[type='text']:focus {
+            border-color: #1f1f55;
+            box-shadow: 0px 0px 2px #1f1f55;
+
+        }
+
+        p.profile::first-letter {
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        p.profile::after {
+            content: "!";
+        }
+
+        p.profile::before {
+            content: "->";
+            color: red;
+        }
+        #lorem-p::first-line {
+            color: red;
+        }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                background-color: #1f1f55;
+            }
+        }
 
     </style>
 </head>
-<body style="background-color: red;">
+<body >
 <!--<h1 style='color: white'>Akbar <br> is good boy</h1>-->
 <!--<a href="https://google.com" id="my_link">Google Webpage!</a>-->
+<p id="lorem-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum qui reprehenderit sapiente sit! A dicta mollitia soluta tenetur! Amet aperiam dignissimos dolore eligendi fuga iste itaque libero qui reiciendis veritatis.</p>
 
-
-<form action="http://ma-web.ir/maktab64/" method="post"
-      style="background-color: antiquewhite; text-align: center; border: solid 2px red; padding: 10px; box-shadow: 5px 5px 5px gray">
+<form id="my-form" action="http://ma-web.ir/maktab64/" method="post"
+      style="text-align: center; border: solid 2px red; padding: 10px; box-shadow: 5px 5px 5px gray">
 <!--    <input type="text" name="name" value="Akbar"><br>-->
-    <label for="name_field">Enter your name:</label>
-    <select id="name_field" name="name">
-        <option value="Akb">Akbar</option>
-        <option value="Asq">Asqar</option>
-        <option value="Rez">Reza</option>
-        <option value="Ma">Mamad</option>
-    </select>
+    <input type="text"><br>
+
+<!--    <label for="name_field">Enter your name:</label>-->
+    <input type="text" id="name_field"><br>
+<!--    <select id="name_field" name="name">-->
+<!--        <option value="Akb">Akbar</option>-->
+<!--        <option value="Asq">Asqar</option>-->
+<!--        <option value="Rez">Reza</option>-->
+<!--        <option value="Ma">Mamad</option>-->
+<!--    </select>-->
     <input type="submit" value="Login">
 
 </form>
 
 
 
-<!--<div id="akbar" >-->
-<!--    <div>-->
-<!--        <p class="profile">Firstname: Akbar</p>-->
-<!--        <p class="profile">Lastname: Babaii</p>-->
-<!--        <p class="profile">Phone: 09123456789</p>-->
-<!--        <p class="profile">Degree: PhD</p>-->
-<!--        <p class="profile">Area: Computer Eng.</p>-->
-<!--    </div>-->
+<div id="akbar" >
+    <p>Test test</p>
+    <div>
+        <p class="profile">Firstname: Akbar</p>
+        <p class="profile">Lastname: Babaii</p>
+        <p class="profile">Phone: 09123456789</p>
+        <p class="profile">Degree: PhD</p>
+        <p class="profile">Area: Computer Eng.</p>
+    </div>
 
-<!--    <div id="social-links">-->
-<!--        <a class="social business" href="https://linkedin.com">Linkedin</a>-->
-<!--        <a class="social business entertainment" href="https://instagram.com">Instagram</a>-->
-<!--        <a class="social entertainment" href="https://facebook.com">Facebook</a>-->
-<!--        <a class="social messenger" href="https://telegram.com">Click here!</a>-->
-<!--    </div>-->
+    <div id="social-links">
+        <a class="social business" href="https://linkedin.com">Linkedin</a>
+        <a class="social business entertainment" href="https://instagram.com">Instagram</a>
+        <a class="social entertainment" href="https://facebook.com">Facebook</a>
+        <a class="social messenger" href="https://telegram.com">Click here!</a>
+    </div>
 
 
 <!--    <h1>Taqzie</h1>-->
