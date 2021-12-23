@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maktab 64 | Cafe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap4.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <style>
+        body,h1,h5 {font-family: "Raleway", sans-serif}
+        body, html {height: 100%}
+        body {
+            background-image: url('https://www.w3schools.com/w3images/onepage_restaurant.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Raleway,serif;
+        }
+        button.my-btn, input[type=submit].my-btn, a.my-btn {
+            background-color: black;
+            border-radius: 0;
+            color: white!important;
+            outline: none!important;
+        }
+        .my-btn:hover {
+            background-color: #c2c2c2;
+            color: #242424!important;
+        }
+        .bg-black {
+            background-color: black;
+        }
+        .list-group-item.menu-header {
+            background-color: black;
+            color: white;
+            font-size: 1.5rem;
+            border-radius: 0;
+        }
+
+        .form-control {
+            border-color: gray;
+            padding-top: 1.5rem!important;
+            padding-bottom: 1.5rem!important;
+        }
+        .form-control:focus {
+            border: 2px solid black;
+            box-shadow: none!important;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="buttons" class="d-block p-3">
+        <button class="btn btn-dark btn-lg my-btn mb-3" data-target="#menu-modal" data-toggle="modal" type="button">menu</button><br>
+        <button class="btn btn-dark btn-lg my-btn" data-target="#contact-modal" data-toggle="modal" type="button">contact</button>
+    </div>
+    <div class="modal fade" id="menu-modal" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <ul class="list-group">
+                  <li class="list-group-item menu-header">Starters</li>
+                  <li class="list-group-item">Akbar $10</li>
+                  <li class="list-group-item">Asqar $20</li>
+                </ul>
+                <ul class="list-group">
+                  <li class="list-group-item menu-header">Lunch</li>
+                  <li class="list-group-item">Akbar $10</li>
+                  <li class="list-group-item">Asqar $20</li>
+                </ul>
+                <ul class="list-group">
+                  <li class="list-group-item menu-header">Dinner</li>
+                  <li class="list-group-item">Akbar $10</li>
+                  <li class="list-group-item">Asqar $20</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="contact-modal" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered ">
+
+            <div class="modal-content">
+                <div class="modal-header bg-black text-white rounded-0">
+                    <h4 class="modal-title">Contact</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Reserve a table, ask for today's special or just send us a message:</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control rounded-0" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" min="1" class="form-control rounded-0" placeholder="How many people">
+                        </div>
+                        <div class="form-group">
+                            <input type="date" class="form-control rounded-0" placeholder="Date">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control rounded-0" placeholder="Message/Special Requirements">
+                        </div>
+                        <input id="contact-submit-btn" type="submit" class="btn btn-outline-secondary rounded-0" value="SEND MESSAGE">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="footer" class="fixed-bottom text-white p-3">
+        <h4>monday - friday 10-23 | saturday 14-02</h4>
+        <h5>42 village St, New York</h5>
+        <h6>powered by Akbar.Babaii</h6>
+
+    </div>
+
+</body>
+</html>
