@@ -1,8 +1,87 @@
-def is_primal(x):
-    for i in range(2, x):
-        if x % i == 2:
-            return False
+import random
 
-    return True
+pp = [
+    "BS4 Carousel",
+    "BS4 Cards",
+    "BS4 Progress Bars",
+    "BS4 Alerts",
+    "BS4 Jumbotron",
+    "BS4 Pagination",
+    "BS4 Modal",
+    "BS4 Collapse",
+    "BS4 Spinners",
+    "BS4 Button Groups",
+    "BS4 Images",
+    "BS4 Colors",
+    "BS4 Typography",
+    "BS4 Custom Forms",
+    "BS4 Tooltip",
+    "BS4 Flex",
+    "BS4 Media Objects",
+    "BS4 Forms",
+    "BS4 Filters",
+    "BS4 Dropdowns",
+    "BS4 List Groups",
+    "BS4 Tables",
+    "BS4 Buttons",
+    "BS4 Toast",
+    "BS4 Navs",
+    "BS4 Popover",
+    "BS4 Scrollspy",
+    "BS4 Input Groups",
+    "BS4 Icons",
+    "BS4 Inputs",
+    "BS4 Badges",
+    "BS4 Navbar",
+    "BS4 Utilities (borders, float, width, height, spacing)",
+    "BS4 Utilities (align, justify, visibility, shadows, position)",
 
-print(int('111'))
+]
+ss = [
+    "علیرضا دلخواهی",
+    "مهدی شهیدی",
+    "رضا چوکیان",
+    "پوریا صامتی",
+    "سید محمدرضا خسروشاهی",
+    # "محمد ترکمان",
+    "محمدمهدی صالحی مرگان",
+    "محمدرضا حسینی",
+    "امیرعلی داراب پور",
+    "میثم نصرتی آذر",
+    "همایون پیش یار",
+    "مهراب محمدحسینی",
+    "علی اسماعیل نژاد",
+    "رضا دباغی",
+    "سید امیرحسین هاشمی",
+    "مصطفی رشادی",
+    "محمد وصالی",
+    "مبین آتشی",
+    "کیارش فضلی",
+    "سعید علیدادیانی",
+    "محمدحسن علیزاده",
+    # "آرمان کاظمی",
+    "مهدی ذوالفقاری",
+    "علیرضا هدایت نیا",
+    "مهدی جلالوند",
+    "محمد نسیمی",
+    "مجید نبی لو",
+    "امیرحسین بهرامی کوتنایی",
+    "محمدعلی جاسم زاده",
+    "سید سجاد صفا",
+    "محمد پویا جلالی",
+    "جلال الدین کرامتی نژاد",
+    "جعفر قدرتی",
+    "شایان صادقی",
+    "مهدی خطیریان",
+    "علیرضا عباسی",
+    "سید امید خاتمی",
+    "امیرحسین بلوک اصلی",
+    # "میثم خراسانی",
+]
+print(ss.pop(random.randint(0, len(ss))))
+print(ss.pop(random.randint(0, len(ss))))
+
+print(len(ss), len(pp))
+
+print(*map(lambda t: f"{t[0]} : {t[1]}",zip(ss,pp)), sep='\n')
+

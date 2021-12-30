@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap4.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+<h1>Header1</h1>
+<h2>Header2</h2>
+
+<input type="range" min="20" max="40" id="font-input"
+      value="20">
+<br>
+<input type="file">
+
+<!--<div id="div1" class="mydiv div-odd">Div 1</div>-->
+<!--<div id="div2" class="mydiv div-even">Div 2</div>-->
+<!--<div id="div3" class="mydiv div-odd">Div 3</div>-->
+<!--<div id="div4" class="mydiv div-even">Div 4</div>-->
+<br>
+<a onclick="$('#more-info').slideUp()">Show more</a>
+<div id="more-info" class="bg-secondary">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet cumque deleniti iure magni temporibus vel velit! Ab adipisci, aperiam blanditiis fugiat laborum magnam nihil omnis quam quibusdam, ratione, saepe veniam!
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        function setSize(this_) {
+            var value = $(this_).val()
+            $('body').css('font-size', value + 'px')
+        }
+
+        $('#font-input').val(3)
+
+        function setBackground(elm) {
+            var url_image = $(elm).val()
+            console.log(url_image)
+            $('body').css('background', `url("${url_image}")`)
+        }
+    </script>
+
+<script>
+    $('#font-input').on('input', function () {
+        setSize(this)
+    })
+
+</script>
+
+</body>
+</html>
