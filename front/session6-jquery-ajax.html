@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="bootstrap4.min.css" rel="stylesheet">
+</head>
+<body>
+
+<ul class="w-25 vh-100 list-group float-left" id="users-list">
+</ul>
+<div id="content" class="vh-100 w-75"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    let USERS = []
+
+    function loadUser(user_id) {
+        var user = USERS[user_id]
+        $("#content").text(`${user.firstname} ${user.lastname} ${user.phone} ${user.ncode}`)
+
+    }
+
+    function prepareUsersList(users) {
+        for (const i in users) {
+            var u = users[i]
+            $(`<li id="${i}" class='list-group-item' onclick="loadUser(this.id)">${u.firstname} ${u.lastname}</li>`)
+                .appendTo("#users-list")
+        }
+    }
+
+    function fetchUsers() {
+        $.ajax("http://ma-web.ir/maktab64/users.json", {
+            type: 'GET',
+            success: function (response, status, xmlHttpRequest) {
+                USERS = response
+                prepareUsersList(response)
+            },
+            error: function () {
+                alert('Error!!!')
+            }
+        })
+
+    }
+
+    fetchUsers()
+
+</script>
+
+</body>
+</html>
