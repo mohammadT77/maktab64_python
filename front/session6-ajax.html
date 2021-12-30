@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap4.min.css" rel="stylesheet">
+</head>
+<body>
+<input type="text" placeholder="Enter your name bro!" id="name-field">
+<input type="button" onclick="requestHello($('#name-field').val())" value="send request!">
+
+<div id="container" style="width: 500px; border: 2px solid red"></div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    function requestHello(name) {
+        let req = new XMLHttpRequest()  // Ajax!!
+
+        req.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                if (this.status === 200) { // 200 ,201, ..., 300, 301, .., 400, 401, 500, ....
+                    console.log("Response received!!!")
+                    console.log("Response:", this.responseText)
+                    $('#container').html(this.responseText)
+                }
+            }
+        }
+        req.open("GET", `http://127.0.0.1:5000/?name=${name}`)
+        req.send()
+    }
+</script>
+
+</body>
+</html>
